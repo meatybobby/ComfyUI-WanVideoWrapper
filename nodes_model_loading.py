@@ -1256,7 +1256,7 @@ class WanVideoModelLoader:
         patcher.model["compile_args"] = compile_args
         patcher.model["gguf"] = gguf
         patcher.model["fp8_matmul"] = "fast" in quantization
-        patcher.model["scale_weights"] = scale_weights
+        patcher.model["scale_weights"] = {} if gguf else scale_weights
 
         if 'transformer_options' not in patcher.model_options:
             patcher.model_options['transformer_options'] = {}
